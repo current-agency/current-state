@@ -11,7 +11,7 @@ import { getAuthedPayloadUser, getPayloadClient } from '@/lib/companyContent'
 import { getDisplayName, getInitials } from '@/lib/userDisplay'
 import type { CompanyContent } from '@/payload-types'
 
-import '../dashboard/dashboard.css'
+import '../../dashboard/dashboard.css'
 
 type ContentPageProps = {
   params: Promise<{ id: string }>
