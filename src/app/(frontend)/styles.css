@@ -121,13 +121,17 @@ svg {
     align-items: center;
     gap: 12px;
 
-    a {
+    a,
+    button {
       text-decoration: none;
       padding: 0.25rem 0.5rem;
       border-radius: 4px;
+      font: inherit;
+      cursor: pointer;
     }
 
-    .admin {
+    .admin,
+    .signin {
       color: rgb(0, 0, 0);
       background: rgb(1000, 1000, 1000);
       border: 1px solid rgb(0, 0, 0);
