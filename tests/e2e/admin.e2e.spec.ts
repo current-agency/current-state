@@ -1,22 +1,28 @@
 import { test, expect, Page } from '@playwright/test'
-import { login } from '../helpers/login'
-import { seedTestUser, cleanupTestUser, testUser } from '../helpers/seedUser'
+import { seedTestUser, cleanupTestUser } from '../helpers/seedUser'
 
+/**
+ * Admin panel login is Google/NextAuth only (Payload local strategy disabled).
+ * These flows need a NextAuth session fixture before they can run end-to-end.
+ */
 test.describe('Admin Panel', () => {
   let page: Page
 
-  test.beforeAll(async ({ browser }, testInfo) => {
+  test.beforeAll(async ({ browser }) => {
     await seedTestUser()
 
     const context = await browser.newContext()
     page = await context.newPage()
-
-    await login({ page, user: testUser })
   })
 
   test.afterAll(async () => {
     await cleanupTestUser()
   })
+
+  test.skip(
+    !process.env.E2E_NEXTAUTH_SESSION,
+    'Admin e2e requires a NextAuth session fixture (Google login)',
+  )
 
   test('can navigate to dashboard', async () => {
     await page.goto('http://localhost:3000/admin')

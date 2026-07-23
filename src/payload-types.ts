@@ -123,6 +123,14 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  userType: 'admin' | 'member';
+  department?: ('design' | 'engineering' | 'production' | 'executive' | 'operations') | null;
+  role?: string | null;
+  startDate?: string | null;
+  /**
+   * Month and day only, e.g. 03-15
+   */
+  birthday?: string | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -240,6 +248,11 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  userType?: T;
+  department?: T;
+  role?: T;
+  startDate?: T;
+  birthday?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
