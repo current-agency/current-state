@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    'company-content': CompanyContent;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -78,6 +79,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'company-content': CompanyContentSelect<false> | CompanyContentSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -123,6 +125,14 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  userType: 'admin' | 'member';
+  department?: ('design' | 'engineering' | 'production' | 'executive' | 'operations') | null;
+  role?: string | null;
+  startDate?: string | null;
+  /**
+   * Month and day only, e.g. 03-15
+   */
+  birthday?: string | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -163,6 +173,35 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "company-content".
+ */
+export interface CompanyContent {
+  id: number;
+  title: string;
+  department?:
+    ('all-company' | 'operations' | 'executive' | 'design' | 'engineering' | 'strategy' | 'production') | null;
+  body?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  order?: number | null;
+  status: 'draft' | 'live' | 'archive';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -192,6 +231,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'company-content';
+        value: number | CompanyContent;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -240,6 +283,11 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  userType?: T;
+  department?: T;
+  role?: T;
+  startDate?: T;
+  birthday?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -274,6 +322,19 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "company-content_select".
+ */
+export interface CompanyContentSelect<T extends boolean = true> {
+  title?: T;
+  department?: T;
+  body?: T;
+  order?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

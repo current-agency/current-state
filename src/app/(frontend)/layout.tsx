@@ -1,9 +1,10 @@
 import React from 'react'
-import './styles.css'
+
+import '@/current-design-system/colors_and_type.css'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'Current — internal onboarding and company hub',
+  title: 'Current',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
@@ -11,9 +12,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="en">
-      <body>
-        <main>{children}</main>
-      </body>
+      <body style={{ margin: 0, background: 'var(--bg-canvas)' }}>{children}</body>
     </html>
   )
 }

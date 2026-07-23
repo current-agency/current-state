@@ -7,7 +7,7 @@ export default withAuth({
 })
 
 export const config = {
-  // Protect frontend pages only. Leave Payload admin, all API routes
-  // (including NextAuth), and the sign-in page public.
-  matcher: ['/((?!api|admin|signin|_next/static|_next/image|favicon.ico).*)'],
+  // Protect frontend and Payload admin. Leave API routes (including NextAuth)
+  // and the sign-in page public.
+  matcher: ['/((?!api|signin|_next/static|_next/image|favicon.ico).*)'],
 }
