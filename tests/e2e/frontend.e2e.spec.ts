@@ -9,6 +9,13 @@ test.describe('Frontend', () => {
     await expect(page.getByRole('button', { name: 'Sign in with Google' })).toBeVisible()
   })
 
+  test('unauthenticated dashboard redirects to sign-in', async ({ page }) => {
+    await page.goto('http://localhost:3000/dashboard')
+
+    await expect(page).toHaveURL(/\/signin/)
+    await expect(page.getByRole('button', { name: 'Sign in with Google' })).toBeVisible()
+  })
+
   test('sign-in page is publicly accessible', async ({ page }) => {
     await page.goto('http://localhost:3000/signin')
 

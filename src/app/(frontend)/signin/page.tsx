@@ -5,11 +5,18 @@ import React from 'react'
 import { getAuthOptions } from '@/lib/auth'
 
 import { SignInButton } from './SignInButton'
+import '../styles.css'
 
-export default async function SignInPage() {
+type SignInPageProps = {
+  searchParams: Promise<{ callbackUrl?: string }>
+}
+
+export default async function SignInPage({ searchParams }: SignInPageProps) {
   const session = await getServerSession(getAuthOptions())
+  const { callbackUrl = '/dashboard' } = await searchParams
+
   if (session) {
-    redirect('/')
+    redirect(callbackUrl.startsWith('/') ? callbackUrl : '/dashboard')
   }
 
   return (
@@ -18,7 +25,9 @@ export default async function SignInPage() {
         <h1>Sign in</h1>
         <p>Use your Google account to continue.</p>
         <div className="links">
-          <SignInButton />
+          <SignInButton
+            callbackUrl={callbackUrl.startsWith('/') ? callbackUrl : '/dashboard'}
+          />
         </div>
       </div>
     </div>

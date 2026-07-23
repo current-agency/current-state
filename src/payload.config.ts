@@ -7,6 +7,7 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { CompanyContent } from './collections/CompanyContent'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -17,8 +18,15 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      views: {
+        login: {
+          Component: '/components/AdminLoginRedirect#AdminLoginRedirect',
+        },
+      },
+    },
   },
-  collections: [Users, Media],
+  collections: [Users, Media, CompanyContent],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
@@ -28,6 +36,9 @@ export default buildConfig({
     pool: {
       connectionString: process.env.POSTGRES_URL || '',
     },
+    // Avoid interactive drizzle prompts that block the Next.js server in dev.
+    // Apply schema changes explicitly (SQL / migrations) instead.
+    push: false,
   }),
   sharp,
   plugins: [],
