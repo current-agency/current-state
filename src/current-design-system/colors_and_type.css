@@ -1,0 +1,215 @@
+/* ==========================================================================
+   Current — Colors & Type
+   Brand: Current (currentagency.com) — Full-stack digital agency.
+   Reference: CUR_Brand Guidelines v1.0 (Jan 2026), Foundations Figma frames.
+   ========================================================================== */
+
+/* -------- Web fonts -------- */
+@font-face {
+  font-family: "Aeonik";
+  src: url("./fonts/aeonik-regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik";
+  src: url("./fonts/aeonik-bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik Fono";
+  src: url("./fonts/AeonikFono-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Aeonik Fono";
+  src: url("./fonts/AeonikFono-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* ====== PRIMARY COLORS ====== */
+  --cur-current: #0100FE;   /* Current Blue — primary brand color */
+  --cur-node:    #2C2C2C;   /* Node — primary dark / text */
+  --cur-static:  #E7E8E3;   /* Static — primary light / canvas */
+
+  /* ====== SECONDARY COLORS ====== */
+  --cur-flow:    #9FDFFE;   /* Flow — pale sky blue */
+  --cur-depth:   #035C4B;   /* Depth — deep teal-green */
+  --cur-signal:  #A9FF92;   /* Signal — neon lime green */
+
+  /* ====== EXPANDED PALETTE (tints/shades) ====== */
+  --cur-current-deep:   #01008E;
+  --cur-current-bright: #00A4F5;
+  --cur-flow-mid:       #00A4F5;
+  --cur-flow-tone:      #0100FE;
+  --cur-depth-bright:   #077C66;
+  --cur-depth-deep:     #01352B;
+  --cur-node-mid:       #5C5C5C;
+  --cur-node-true:      #000000;
+  --cur-static-stone:   #C1C2BB;
+  --cur-static-bright:  #FBFCF9;
+  --cur-signal-pale:    #E4FFDD;
+  --cur-signal-deep:    #4DE723;
+
+  /* ====== NEUTRALS / utility ====== */
+  --cur-white: #FFFFFF;
+  --cur-black: #000000;
+  --cur-line:  rgba(231, 232, 227, 0.6);
+  --cur-line-strong: #E7E8E3;
+
+  /* ====== SEMANTIC: foreground ====== */
+  --fg-1: var(--cur-node);             /* primary text */
+  --fg-2: var(--cur-node-mid);         /* secondary text */
+  --fg-3: rgba(44, 44, 44, 0.6);       /* tertiary / muted */
+  --fg-on-blue:  var(--cur-static);    /* text on Current Blue */
+  --fg-on-dark:  var(--cur-static);
+  --fg-on-light: var(--cur-node);
+  --fg-link: var(--cur-current);
+
+  /* ====== SEMANTIC: background ====== */
+  --bg-canvas:   var(--cur-static-bright); /* near-white */
+  --bg-surface:  var(--cur-white);
+  --bg-muted:    var(--cur-static);
+  --bg-dark:     var(--cur-node);
+  --bg-brand:    var(--cur-current);
+  --bg-deep:     var(--cur-depth);
+
+  /* ====== TYPE FAMILIES ======
+     Aeonik = primary sans (display, headlines, body).
+     Aeonik Fono = mono (eyebrows, details, numbers, captions).
+     Helvetica Neue = approved fallback per brand guidelines. */
+  --font-sans: "Aeonik", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: "Aeonik Fono", "Helvetica Neue", Helvetica, Arial, monospace;
+
+  /* ====== TYPE SCALE — desktop (per Brand Guidelines pp. 19–22) ====== */
+  /* Display */
+  --t-display-large-size: 130px;
+  --t-display-small-size: 100px;
+  --t-display-line: 0.95; /* @kind font */
+  --t-display-tracking: -0.02em;
+  /* Headline */
+  --t-h1-size: 64px;
+  --t-h2-size: 56px;
+  --t-h3-size: 36px;
+  --t-heading-line: 1.05; /* @kind font */
+  --t-heading-tracking: -0.02em;
+  /* Title */
+  --t-title-lg: 40px;
+  --t-title-md: 32px;
+  --t-title-sm: 24px;
+  --t-title-line: 1.2; /* @kind font */
+  /* Body */
+  --t-body-lg: 20px;
+  --t-body-md: 18px;
+  --t-body-sm: 14px;
+  --t-body-line: 1.4; /* @kind font */
+  /* Eyebrow / mono */
+  --t-eyebrow-lg: 20px;
+  --t-eyebrow-sm: 16px;
+  --t-eyebrow-tracking: 0.06em;
+  --t-eyebrow-line: 0.9; /* @kind font */
+  /* Details (mono small) */
+  --t-details-lg: 20px;
+  --t-details-sm: 16px;
+  --t-details-line: 1.4; /* @kind font */
+
+  /* ====== SPACING (8pt grid) ====== */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 80px;
+  --space-10: 120px;
+
+  /* ====== RADII ====== */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;     /* swatches / chips */
+  --radius-lg: 10px;    /* hero header banners (per Foundations) */
+  --radius-xl: 16px;
+  --radius-pill: 999px;
+
+  /* ====== ELEVATION ====== */
+  --shadow-card: 0 8px 18px rgba(0, 0, 0, 0.07);
+  --shadow-pop:  0 12px 32px rgba(0, 0, 0, 0.12);
+  --shadow-hairline: inset 0 0 0 1px var(--cur-line-strong);
+
+  /* ====== MOTION ====== */
+  --ease-standard: cubic-bezier(0.2, 0.6, 0.2, 1); /* @kind other */
+  --ease-out:      cubic-bezier(0.16, 1, 0.3, 1); /* @kind other */
+  --dur-fast: 140ms; /* @kind other */
+  --dur-base: 220ms; /* @kind other */
+  --dur-slow: 420ms; /* @kind other */
+}
+
+/* ==========================================================================
+   SEMANTIC ELEMENT STYLES
+   ========================================================================== */
+.cur-display, .cur-display-lg {
+  font-family: var(--font-sans); font-weight: 700;
+  font-size: var(--t-display-large-size);
+  line-height: var(--t-display-line);
+  letter-spacing: var(--t-display-tracking);
+  color: var(--fg-1);
+}
+.cur-display-sm {
+  font-family: var(--font-sans); font-weight: 700;
+  font-size: var(--t-display-small-size);
+  line-height: var(--t-display-line);
+  letter-spacing: var(--t-display-tracking);
+  color: var(--fg-1);
+}
+.cur-h1 {
+  font-family: var(--font-sans); font-weight: 700;
+  font-size: var(--t-h1-size); line-height: var(--t-heading-line);
+  letter-spacing: var(--t-heading-tracking); color: var(--fg-1);
+}
+.cur-h2 {
+  font-family: var(--font-sans); font-weight: 700;
+  font-size: var(--t-h2-size); line-height: var(--t-heading-line);
+  letter-spacing: var(--t-heading-tracking); color: var(--fg-1);
+}
+.cur-h3 {
+  font-family: var(--font-sans); font-weight: 700;
+  font-size: var(--t-h3-size); line-height: var(--t-heading-line);
+  letter-spacing: var(--t-heading-tracking); color: var(--fg-1);
+}
+.cur-title-lg-bold   { font-family: var(--font-sans); font-weight: 700; font-size: var(--t-title-lg); line-height: var(--t-title-line); color: var(--fg-1); }
+.cur-title-lg        { font-family: var(--font-sans); font-weight: 400; font-size: var(--t-title-lg); line-height: var(--t-title-line); color: var(--fg-1); }
+.cur-title-md-bold   { font-family: var(--font-sans); font-weight: 700; font-size: var(--t-title-md); line-height: var(--t-title-line); color: var(--fg-1); }
+.cur-title-md        { font-family: var(--font-sans); font-weight: 400; font-size: var(--t-title-md); line-height: var(--t-title-line); color: var(--fg-1); }
+.cur-title-sm-bold   { font-family: var(--font-sans); font-weight: 700; font-size: var(--t-title-sm); line-height: var(--t-title-line); color: var(--fg-1); }
+.cur-title-sm        { font-family: var(--font-sans); font-weight: 400; font-size: var(--t-title-sm); line-height: var(--t-title-line); color: var(--fg-1); }
+
+.cur-body-lg { font-family: var(--font-sans); font-weight: 400; font-size: var(--t-body-lg); line-height: var(--t-body-line); color: var(--fg-1); }
+.cur-body-md { font-family: var(--font-sans); font-weight: 400; font-size: var(--t-body-md); line-height: var(--t-body-line); color: var(--fg-1); }
+.cur-body-sm { font-family: var(--font-sans); font-weight: 400; font-size: var(--t-body-sm); line-height: var(--t-body-line); color: var(--fg-1); }
+
+.cur-eyebrow-lg, .cur-eyebrow-sm {
+  font-family: var(--font-mono); font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: var(--t-eyebrow-tracking);
+  line-height: var(--t-eyebrow-line);
+  color: var(--fg-1);
+}
+.cur-eyebrow-lg { font-size: var(--t-eyebrow-lg); }
+.cur-eyebrow-sm { font-size: var(--t-eyebrow-sm); }
+
+.cur-details-lg-bold { font-family: var(--font-mono); font-weight: 700; font-size: var(--t-details-lg); line-height: var(--t-details-line); color: var(--fg-1); }
+.cur-details-lg      { font-family: var(--font-mono); font-weight: 400; font-size: var(--t-details-lg); line-height: var(--t-details-line); color: var(--fg-1); }
+.cur-details-sm-bold { font-family: var(--font-mono); font-weight: 700; font-size: var(--t-details-sm); line-height: var(--t-details-line); color: var(--fg-1); }
+.cur-details-sm      { font-family: var(--font-mono); font-weight: 400; font-size: var(--t-details-sm); line-height: var(--t-details-line); color: var(--fg-1); }
+
+/* Common HTML element bindings (light shell — opt-in) */
+.cur-prose h1 { @apply: ; }
+.cur-prose { font-family: var(--font-sans); color: var(--fg-1); }
+.cur-prose h1 { font: 700 var(--t-h1-size)/var(--t-heading-line) var(--font-sans); letter-spacing: var(--t-heading-tracking); margin: 0 0 var(--space-5); }
+.cur-prose h2 { font: 700 var(--t-h2-size)/var(--t-heading-line) var(--font-sans); letter-spacing: var(--t-heading-tracking); margin: 0 0 var(--space-5); }
+.cur-prose h3 { font: 700 var(--t-h3-size)/var(--t-heading-line) var(--font-sans); letter-spacing: var(--t-heading-tracking); margin: 0 0 var(--space-4); }
+.cur-prose p  { font: 400 var(--t-body-md)/var(--t-body-line) var(--font-sans); margin: 0 0 var(--space-4); }
+.cur-prose code, .cur-prose kbd { font-family: var(--font-mono); font-size: 0.95em; }
