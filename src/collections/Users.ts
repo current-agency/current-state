@@ -8,7 +8,7 @@ export const Users: CollectionConfig = {
   slug: 'users',
   admin: {
     useAsTitle: 'email',
-    defaultColumns: ['email', 'userType', 'department', 'role'],
+    defaultColumns: ['email', 'userType', 'department', 'jobTitle'],
   },
   auth: {
     // Google/NextAuth is the only login path; keep email on the collection.
@@ -45,9 +45,15 @@ export const Users: CollectionConfig = {
       ],
     },
     {
-      name: 'role',
-      type: 'text',
+      name: 'jobTitle',
+      type: 'select',
       label: 'Job title',
+      options: [
+        { label: 'Designer', value: 'designer' },
+        { label: 'Engineer', value: 'engineer' },
+        { label: 'Producer', value: 'producer' },
+        { label: 'Project Manager', value: 'project-manager' },
+      ],
     },
     {
       name: 'startDate',

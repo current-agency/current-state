@@ -127,7 +127,7 @@ export interface User {
   id: number;
   userType: 'admin' | 'member';
   department?: ('design' | 'engineering' | 'production' | 'executive' | 'operations') | null;
-  role?: string | null;
+  jobTitle?: ('designer' | 'engineer' | 'producer' | 'project-manager') | null;
   startDate?: string | null;
   /**
    * Month and day only, e.g. 03-15
@@ -285,7 +285,7 @@ export interface PayloadMigration {
 export interface UsersSelect<T extends boolean = true> {
   userType?: T;
   department?: T;
-  role?: T;
+  jobTitle?: T;
   startDate?: T;
   birthday?: T;
   updatedAt?: T;
