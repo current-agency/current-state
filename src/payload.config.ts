@@ -17,6 +17,13 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      views: {
+        login: {
+          Component: '/components/AdminLoginRedirect#AdminLoginRedirect',
+        },
+      },
+    },
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
@@ -28,6 +35,9 @@ export default buildConfig({
     pool: {
       connectionString: process.env.POSTGRES_URL || '',
     },
+    // Avoid interactive drizzle prompts that block the Next.js server in dev.
+    // Apply schema changes explicitly (SQL / migrations) instead.
+    push: false,
   }),
   sharp,
   plugins: [],
