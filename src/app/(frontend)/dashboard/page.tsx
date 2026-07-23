@@ -6,6 +6,7 @@ import React from 'react'
 import { ActivitiesPanel } from '@/components/dashboard/ActivitiesPanel'
 import { CompanyUpdates } from '@/components/dashboard/CompanyUpdates'
 import { DashboardHeader } from '@/components/dashboard/DashboardHeader'
+import { WeatherWidget } from '@/components/dashboard/WeatherWidget'
 import { getAuthOptions } from '@/lib/auth'
 import {
   getAuthedPayloadUser,
@@ -46,6 +47,7 @@ export default async function DashboardPage() {
           <ActivitiesPanel />
         </div>
         <aside className="dash-aside">
+          <WeatherWidget />
           <CompanyUpdates items={companyContent} />
         </aside>
       </main>

@@ -177,6 +177,68 @@
   letter-spacing: -0.01em;
 }
 
+.dash-weather-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.dash-weather-title {
+  margin-bottom: 0;
+}
+
+.dash-weather-toggle {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid var(--cur-line-strong);
+  background: var(--bg-muted);
+  color: var(--fg-1);
+  border-radius: var(--radius-pill);
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.dash-weather-toggle:hover {
+  border-color: var(--cur-node-mid);
+}
+
+.dash-weather-body {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dash-weather-icon {
+  width: 64px;
+  height: 64px;
+  flex: none;
+}
+
+.dash-weather-temp {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.dash-weather-condition {
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.dash-weather-location {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--fg-3);
+  margin-top: 2px;
+}
+
 .dash-muted {
   font-size: 14px;
   color: var(--fg-3);
